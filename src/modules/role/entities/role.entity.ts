@@ -17,7 +17,7 @@ export class Role extends BaseEntity{
     @ManyToMany(type => User, user => user.roles )
     users: User[];
 
-    @Column({ type: 'varchar', default: 'INACTIVE', length: 8})
+    @Column({ type: 'varchar', default: 'ACTIVE', length: 8})
     status: string;
 
     @CreateDateColumn({ type: 'timestamp', name: 'created_at'})

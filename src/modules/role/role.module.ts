@@ -1,4 +1,16 @@
 import { Module } from '@nestjs/common';
+import { RoleService } from './role.service';
+import { RoleController } from './role.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { RoleRepository } from './repositories/role.repository';
+import { SharedModule } from '../../shared/shared.module';
 
-@Module({})
+@Module({
+  imports: [
+    TypeOrmModule.forFeature([RoleRepository]),
+    SharedModule
+  ],
+  providers: [RoleService],
+  controllers: [RoleController]
+})
 export class RoleModule {}
